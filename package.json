@@ -1,0 +1,28 @@
+{
+  "name": "crud-api",
+  "version": "1.0.0",
+  "description": "Simple CRUD API",
+  "main": "index.ts",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artemmironchik/crud-api.git"
+  },
+  "author": "artemmironchik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/artemmironchik/crud-api/issues"
+  },
+  "homepage": "https://github.com/artemmironchik/crud-api#readme",
+  "dependencies": {
+    "@types/node": "^20.11.17",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.2",
+    "nodemon": "^3.0.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}
