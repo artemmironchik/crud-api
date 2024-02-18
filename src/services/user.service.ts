@@ -54,8 +54,6 @@ const deleteUser = (id: string) => {
 
   users.splice(userIndex, 1)
 
-  console.log(deletedUser)
-
   return deletedUser
 } 
 
