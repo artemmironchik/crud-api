@@ -46,10 +46,11 @@ export const isIdValid = (res: ServerResponse, userId?: string): userId is strin
 export const validateUserFields = (
   username: string, 
   age: number, 
-  hobbies: string[], 
-  res: ServerResponse
+  hobbies: string[],
+  res: ServerResponse,
+  validateAll?: boolean,
 ) => {
-  if (!username || !age || !hobbies) {
+  if (validateAll && (!username || !age || !hobbies)) {
     sendResponse(res, StatusCode.BAD_REQUEST, {
       message: ErrorMessage.MISSING_PARAMS,
     })
@@ -65,7 +66,7 @@ export const validateUserFields = (
     return false
   }
 
-  if (typeof age !== 'number') {
+  if (age && typeof age !== 'number') {
     sendResponse(res, StatusCode.BAD_REQUEST, {
       message: ErrorMessage.INVALID_AGE,
     })
@@ -73,8 +74,8 @@ export const validateUserFields = (
     return false
   }
 
-  if (!Array.isArray(hobbies)
-      || hobbies.some((hobby) => typeof hobby !== 'string' || !hobby.trim())) {
+  if (hobbies && (!Array.isArray(hobbies)
+      || hobbies.some((hobby) => typeof hobby !== 'string' || !hobby.trim()))) {
     sendResponse(res, StatusCode.BAD_REQUEST, {
       message: ErrorMessage.INVALID_HOBBIES,
     })

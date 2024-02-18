@@ -22,8 +22,30 @@ const createUser = (fields: UserFields) => {
   return newUser
 }
 
+const updateUser = (id: User['id'], fields: Partial<UserFields>) => {
+  const userIndex = users.findIndex((user) => user.id === id)
+
+  if (userIndex === -1) {
+    return
+  }
+
+  const filteredFields = Object.entries(fields)
+    .filter(([_, value]) => value !== undefined)
+    .reduce((acc, [key, value]) => ({ ...acc, [key]: value }), {})
+  
+  const updatedUser = {
+    ...users[userIndex],
+    ...filteredFields,
+  }
+
+  users[userIndex] = updatedUser
+
+  return updatedUser
+}
+
 export const userService = {
   getUser,
   getUsers,
   createUser,
+  updateUser,
 }

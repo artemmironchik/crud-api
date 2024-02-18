@@ -2,7 +2,7 @@ import { IncomingMessage, ServerResponse } from "http";
 
 import { notFound, sendResponse } from "../utils";
 import { ErrorMessage, StatusCode } from "../enums"
-import { create, get } from "../handlers";
+import { create, get, update } from "../handlers";
 
 export const routes = (req: IncomingMessage, res: ServerResponse) => {
   try {
@@ -16,6 +16,8 @@ export const routes = (req: IncomingMessage, res: ServerResponse) => {
 
         break
       case 'PUT':
+        update(req, res)
+
         break
       case 'DELETE':
         break
