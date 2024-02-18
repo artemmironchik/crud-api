@@ -1,5 +1,7 @@
+import { v4 as uuid } from 'uuid'
+
 import { users } from "../database/db"
-import { User } from "../models/user"
+import { User, UserFields } from "../models/user"
 
 const getUsers = () => users
 
@@ -9,7 +11,19 @@ const getUser = (id: User['id']) => {
   return user
 }
 
+const createUser = (fields: UserFields) => {
+  const newUser = {
+    id: uuid(),
+    ...fields,
+  }
+
+  users.push(newUser)
+
+  return newUser
+}
+
 export const userService = {
   getUser,
   getUsers,
+  createUser,
 }
