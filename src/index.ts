@@ -11,5 +11,5 @@ const server = http.createServer((req, res) => {
 })
 
 server.listen(PORT, () => {
-  console.log(`API Server is listening on ${PORT} port in ${mode} mode`)
+  console.log(`API Server is listening on ${PORT} port in ${mode || 'development'} mode`)
 })
