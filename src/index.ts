@@ -6,7 +6,7 @@ import { routes } from "./routes"
 const PORT = process.env.PORT || '5000'
 const mode = process.env.NODE_ENV
 
-const server = http.createServer((req, res) => {
+export const server = http.createServer((req, res) => {
   routes(req, res)
 })
 
