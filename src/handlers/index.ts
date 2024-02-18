@@ -1,1 +1,1 @@
-export * from './user/get.handler'
+export { handler as get } from './user/get.handler'
