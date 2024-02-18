@@ -43,9 +43,26 @@ const updateUser = (id: User['id'], fields: Partial<UserFields>) => {
   return updatedUser
 }
 
+const deleteUser = (id: string) => {
+  const userIndex = users.findIndex((user) => user.id === id)
+
+  if (userIndex === -1) {
+    return
+  }
+
+  const deletedUser = users[userIndex]
+
+  users.splice(userIndex, 1)
+
+  console.log(deletedUser)
+
+  return deletedUser
+} 
+
 export const userService = {
   getUser,
   getUsers,
   createUser,
   updateUser,
+  deleteUser,
 }

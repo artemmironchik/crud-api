@@ -25,6 +25,8 @@ export const handler = async (req: IncomingMessage, res: ServerResponse) => {
 
       if (!user) {
         sendResponse(res, StatusCode.NOT_FOUND, { message: `User with id ${userId} is not found` })
+
+        return
       }
 
       const body = await parseBody(req)

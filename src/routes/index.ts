@@ -2,7 +2,7 @@ import { IncomingMessage, ServerResponse } from "http";
 
 import { notFound, sendResponse } from "../utils";
 import { ErrorMessage, StatusCode } from "../enums"
-import { create, get, update } from "../handlers";
+import { create, get, update, deleteHandler } from "../handlers";
 
 export const routes = (req: IncomingMessage, res: ServerResponse) => {
   try {
@@ -20,6 +20,8 @@ export const routes = (req: IncomingMessage, res: ServerResponse) => {
 
         break
       case 'DELETE':
+        deleteHandler(req, res)
+
         break
       default:
         notFound(req, res)

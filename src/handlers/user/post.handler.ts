@@ -13,7 +13,7 @@ export const handler = async (req: IncomingMessage, res: ServerResponse) => {
     notFound(req, res)
   }
 
-  if (url === API_URL) {
+  if (url?.startsWith(API_URL + '/')) {
     try {
       const body = await parseBody(req)
     
